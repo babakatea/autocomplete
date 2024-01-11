@@ -7,20 +7,27 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.70",
-    "@types/react": "^18.2.47",
-    "@types/react-dom": "^18.2.18",
+    "@types/node": "^16.18.46",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "^5.0.1",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "uuid4": "^2.0.3",
+    "web-vitals": "^2.1.4",
+    "env-cmd": "^10.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "lint": "npm eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "npm prettier src --check",
+    "prettier:fix": "npm run prettier -- --write"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +46,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "eslint": "^8.48.0",
+    "prettier": "^3.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^3.0.0"
   }
 }
