@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Country } from '../../entities/types';
+import { Country } from '../../shared/types/types';
 import { highlightMatch } from '../../shared/utils/highlightMatch';
 
 import './Autocomplete.css';

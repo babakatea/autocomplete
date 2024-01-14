@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-import { Country } from '../entities/types';
 import { Autocomplete } from '../features/Autocomplete';
+import { Country } from '../shared/types/types';
 
 import './App.css';
 
