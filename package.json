@@ -1,5 +1,6 @@
 {
   "name": "autocomplete",
+  "homepage": "https://babakatea.github.io/autocomplete",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
