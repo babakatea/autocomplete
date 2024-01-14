@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
-import { Country } from '../../shared/types/types';
-import { highlightMatch } from '../../shared/utils/highlightMatch';
+import type { Country } from '../../shared/types/types';
 
+import { Suggestions } from './Suggestions';
 import './Autocomplete.css';
 
 interface Props {
@@ -13,7 +13,7 @@ export const Autocomplete = (props: Props) => {
   const { data } = props;
 
   const [open, setOpen] = useState<boolean>(false);
-  const [inputValue, setInputValue] = useState<string>('');
+  const [inputValue, setInputValue] = useState('');
   const [suggestions, setSuggestions] = useState<Country[]>(data);
 
   const onFocus = () => {
@@ -43,13 +43,15 @@ export const Autocomplete = (props: Props) => {
 
   useEffect(() => {
     const filterData = () => {
-      if (!inputValue) setSuggestions(data);
-      else
+      if (!inputValue) {
+        setSuggestions(data);
+      } else {
         setSuggestions(
           data.filter(country =>
             country.name.toLowerCase().includes(inputValue.toLowerCase()),
           ),
         );
+      }
     };
 
     filterData();
@@ -66,28 +68,12 @@ export const Autocomplete = (props: Props) => {
         type="text"
         value={inputValue}
       />
-      {open && suggestions.length > 0 && (
-        <div className="autocomplete-results">
-          {suggestions.map((country, index) => {
-            const [beforeMatch, match, afterMatch] = highlightMatch(
-              country.name,
-              inputValue,
-            );
-
-            return (
-              <div
-                className="autocomplete-item"
-                key={index}
-                onClick={() => onSelectCountry(country.name)}
-              >
-                {beforeMatch}
-                <span className="highlight">{match}</span>
-                {afterMatch}
-              </div>
-            );
-          })}
-        </div>
-      )}
+      <Suggestions
+        inputValue={inputValue}
+        onSelectCountry={onSelectCountry}
+        open={open}
+        suggestions={suggestions}
+      />
     </div>
   );
 };
