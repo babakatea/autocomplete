@@ -2,6 +2,7 @@
 
 The main difference between **Component** and **PureComponent** is the way they handle the shouldComponentUpdate lifecycle method.
 Component does not implement shouldComponentUpdate and will re-render on every state/props update. The shouldComponentUpdate can be manually implemented.
+
 PureComponent implements shouldComponentUpdate, and it only re-renders if there is a difference in state or props.
 In PureComponent, the app might break because of the deeply nested state/props objects. It may happen that some updates are not detectable by shallow comparison and this will lead to not re-render when it actually should.
 
@@ -12,7 +13,9 @@ When manually implementing the **shouldComponentUpdate** method in the component
 3. Describe 3 ways to pass information from a component to its PARENT.
 
 The most simple method is to create a **callback** function in the parent component and to pass it as a prop to the child. Then, the child component can call this function and pass some arguments inside.
+
 Similar to the first example, you can create a react state in the parent component using useState hook, and pass the **set** function as a prop to the child.
+
 Another way is more complex and suitable for cases when you need to avoid prop drilling. This method is about using the react **context**. In order to pass information from child to parent, first off all it should be created a context using createContext hook, then the child should be wrapped into the Provider component of the created context and also pass to the Provider component the value prop that can be either a callback function or a set function from the useState hook. Then, in the child component access the data from the context using the useContext hook and use the function to update the state in the parent component.
 
 4. Give 2 ways to prevent components from re-rendering.
@@ -142,7 +145,7 @@ In react, the state is async because of performance reasons. React waits and upd
 
 9. List the steps needed to migrate a Class to Function Component.
 
-- Change the class initialization into a function initialization and pass the props as arguments
+- Change the class definition into a function definition and pass the props as arguments
 - Convert state into useState hook
 - Convert all lifecycle methods into its analogue hooks (if they are)
 - Convert refs to useRef hook

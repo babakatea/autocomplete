@@ -26,7 +26,7 @@ export const Autocomplete = (props: Props) => {
     // the user clicks outside the input field are fully processed before the dropdown is closed.
     setTimeout(() => {
       setOpen(false);
-    }, 100); // 100ms is a good value for this timeout because it is long enough to allow the onClick events to be processed, but short enough to feel responsive to the user.
+    }, 120); // 120ms is a good value for this timeout because it is long enough to allow the onClick events to be processed, but short enough to feel responsive to the user.
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
